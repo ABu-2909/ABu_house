@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace对应你的UserMapper接口全路径 -->
+<mapper namespace="com.tj.mapper.UserMapper">
+    <!-- 查询全部用户，resultType指向修正后的User实体类 -->
+    <select id="selectAllUser" resultType="com.tj.entity.User">
+        select * from users
+    </select>
+    <select id="selectUser" parameterType="com.tj.entity.User"
+            resultType="com.tj.entity.User">
+        select * from users
+        where username=#{username}
+        and password=#{password}
+    </select>
+</mapper>
